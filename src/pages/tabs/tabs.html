@@ -1,0 +1,17 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-item>
+      <ion-title item-left>Assignment</ion-title>
+      <button ion-button icon-left clear small item-right (click)="logOut($event)">
+      <ion-icon name="log-out"></ion-icon>
+    </button>
+    </ion-item>
+  </ion-navbar>
+</ion-header>
+
+<ion-tabs>
+  <ion-tab [root]="Frontpage" tabIcon="home" [tabBadge]="value" tabBadgeStyle="danger"></ion-tab>
+  <ion-tab [root]="Account" tabIcon="person"></ion-tab>
+  <ion-tab [root]="About" tabIcon="settings"></ion-tab>
+</ion-tabs>

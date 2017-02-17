@@ -1,0 +1,50 @@
+<form [formGroup]="loginForm" (ngSubmit)="logForm()" *ngIf="formType">
+  <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input type="text" formControlName="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button type="submit" [disabled]="!loginForm.valid">Login</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="toggle()">Create new account</button>
+  </ion-item>
+</form>
+
+<form [formGroup]="signupForm" (ngSubmit)="signForm()" *ngIf="!formType">
+  <ion-item>
+    <ion-label>Username</ion-label>
+    <ion-input type="text" formControlName="username"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Password</ion-label>
+    <ion-input type="password" formControlName="password"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Re-type</ion-label>
+    <ion-input type="password" formControlName="password_retype"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Email</ion-label>
+    <ion-input type="email" formControlName="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Fullname</ion-label>
+    <ion-input type="text" formControlName="fullname"></ion-input>
+  </ion-item>
+  <ion-item>
+    <button ion-button type="submit" [disabled]="!signupForm.valid">Sign up</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="toggle()">Already have account?</button>
+  </ion-item>
+  <ion-item>
+    <p *ngIf="signupForm.hasError('password mismatch')" danger>Password mismatch</p>
+    <p *ngIf="!signupForm.controls['username'].hasError('name taken') && signupForm.controls['username'].touched" danger>Name is taken or empty</p>
+
+  </ion-item>
+</form>

@@ -1,0 +1,19 @@
+<form [formGroup]="uploadForm" (ngSubmit)="upload($event)">
+  <ion-item>
+    <ion-label>Title</ion-label>
+    <ion-input type="text" formControlName="title"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>Description</ion-label>
+    <ion-textarea formControlName="description"></ion-textarea>
+  </ion-item>
+  <p>
+    <input type="file" formControlName="file" placeholder="Choose file">
+  </p>
+  <ion-item>
+    <button ion-button type="submit" [disabled]="!uploadForm.valid">Upload</button>
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="cancel($event)">Cancel</button>
+  </ion-item>
+</form>
